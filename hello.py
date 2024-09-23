@@ -2,8 +2,12 @@ from flask import Flask, render_template
 from flask_bootstrap import Bootstrap 
 from flask_moment import Moment
 from datetime import datetime, timezone
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'my_application_key_is_difficult_to_guess'
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
