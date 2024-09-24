@@ -15,9 +15,9 @@ moment = Moment(app)
 class LoginForm(FlaskForm):
     name = StringField('What is your name?', validators=[DataRequired()])
 
-    # def validate_email(form, field):
-    #     if "utoronto" not in field.data:
-    #         raise ValidationError("Email must be a valid UofT email address!")
+    def validate_email(form, field):
+        if "utoronto" not in field.data:
+            raise ValidationError("Email must be a valid UofT email address!")
 
     email = StringField('What is your UofT email?', validators=[DataRequired(), Email()])
     submit = SubmitField('Submit')
